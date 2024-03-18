@@ -7,7 +7,7 @@ from storage import util
 
 server = Flask(__name__)
 
-mongo = PyMongo(server)
+mongo = PyMongo(server, uri="mongodb://host.minikube.internal:27017/videos")
 fs = gridfs.GridFS(mongo.db)
 
 connection = pika.BlockingConnection(pika.ConnectionParameters("rabbitmq"))
